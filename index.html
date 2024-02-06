@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice() {
+            const p = Math.random();
+            if (p < 0.33) {
+                return "rock";
+            }
+            else if (p < 0.66) {
+                return "paper";
+            }
+            else {
+                return "scissors"
+            }
+        }
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toLowerCase();
+            if (playerSelection === "rock") {
+                if (computerSelection === "rock") {
+                    return "It's a Tie! Rock ties Rock";
+                }
+                else if (computerSelection === "paper") {
+                    return "You Lose! Paper beats Rock";
+                }
+                else {
+                    return "You Win! Rock beats Scissors";
+                }   
+            }
+            else if (playerSelection === "paper") {
+                if (computerSelection === "rock") {
+                    return "You Win! Paper beats Rock";
+                }
+                else if (computerSelection === "paper") {
+                    return "It's a Tie! Paper ties Paper";
+                }
+                else {
+                    return "You Lose! Scissors beats Paper";
+                }
+            }
+            else if (playerSelection === "Scissors") {
+                if (computerSelection === "rock") {
+                    return "You Lose! Rock beats Scissors";
+                }
+                else if (computerSelection === "paper") {
+                    return "You Win! Scissors beats Paper";
+                }
+                else {
+                    return "It's a Tie! Scissors ties Scissors";
+                }
+            }
+            else {
+                return null;
+            }
+        }
+        function playGame() {
+            let wins = 0;
+            let losses = 0;
+            let state = null;
+            while (wins+losses < 5) {
+                while (!state) {
+                    playerSelection = prompt("Rock Paper Scissors?");
+                    state = playRound(playerSelection, getComputerChoice());
+                }
+                console.log(state);
+                end = state.search('!');
+                if (state.substring(0, end) === "You Win") {
+                    wins++;
+                }
+                else if (state.substring(0, end) === "You Lose") {
+                    losses++;
+                }
+                else {
+                    console.log("Let's try that again.");
+                }
+                state = null;
+            }
+            if (wins > losses) {
+                console.log("You beated the computer! You are the Rock Paper Scissors Champion!");
+            }
+            else {
+                console.log("The computer beated you! They are going to take over the world!")
+            }
+            return;
+        }
+        playGame();
+    </script>
+</body>
+</html>
