@@ -1,0 +1,40 @@
+*,*::after,*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    height: 100vh;
+    background: rgb(34,75,195);
+    background: linear-gradient(167deg, rgba(34,75,195,1) 0%, rgba(11,228,237,1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+}
+
+#btns {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    width: 12vh;
+    aspect-ratio: 1;
+    margin: 10px;
+    border-radius: 12px;
+    border-width: 0px;
+    background: #7ed348;
+}
+
+button:hover {
+    background: #268170;
+}
+
+button svg {
+    width: 80%;
+}
+
+
