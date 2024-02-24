@@ -4,3 +4,4 @@ TODO:
 
 1. Add infinite mode or any level mode.
 2. Show computer choice visually.
+3. Add title.
